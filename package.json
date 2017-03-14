@@ -1,0 +1,22 @@
+{
+  "name": "cloudrun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./app/index.js"
+  },
+  "author": "Andreas Pahlen and Stefan Förster",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "flatconfig": "^0.4.4",
+    "fs": "0.0.1-security",
+    "hashmap": "^2.0.6",
+    "murmur": "0.0.2",
+    "path": "^0.12.7",
+    "step": "^1.0.0",
+    "underscore": "^1.8.3"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "server": {
+        "listen": "0.0.0.0",
+        "port": 3000
+    },
+    "logging": {
+        "enabled": true,
+        "output": true,
+        "level": 3,
+        "file": "cloudrun.log"
+    },
+    "auth": {
+        "module": "no_auth",
+        "config": ""
+    },
+    "caching": {
+        "enabled": true,
+        "directory": "cache",
+        "lifetime": 604800,
+        "refresh": true,
+        "clean_interval": 3600
+    }
+}
