@@ -1,5 +1,18 @@
 /* eslint-env node */
 
+// Checking if NodeJS in in production mode
+if (process.env.NODE_ENV !== "production") {
+	console.log("===========================================");
+	console.log(" WARNING! NODEJS IS NOT IN PRODUCTION MODE ");
+	console.log("===========================================");
+	console.log("        DO NOT USE THIS INSTANCE");
+	console.log("       IN A PRODUCTIVE ENVIRONMENT");
+	console.log("===========================================");
+	console.log("    SET ENV_NODE TO \"production\" TO PUT");
+	console.log("        NODEJS INTO PRODUCTION MODE");
+	console.log("===========================================\n\n");
+}
+
 // Getting dependencies
 try {
     var express = require('express');
