@@ -13,6 +13,7 @@ exports.init = function(app, config, modules, auth, dbg) {
         res.set('Access-Control-Allow-Credentials', 'false');
         res.set('Access-Control-Max-Age', '86400');
         res.set('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+		res.set('X-Content-Type-Options', 'nosniff');
         res.end();
     });
     
@@ -23,6 +24,7 @@ exports.init = function(app, config, modules, auth, dbg) {
         res.set('Access-Control-Allow-Methods', 'GET POST PUT OPTIONS');
         res.set('Access-Control-Max-Age', '1000');
         res.set('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With');
+		res.set('X-Content-Type-Options', 'nosniff');
         
         var hash;
         var cache_found;
