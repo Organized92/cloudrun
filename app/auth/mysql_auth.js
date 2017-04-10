@@ -38,8 +38,6 @@ function Auth(dbg, config) {
 // Authentication process
 Auth.prototype.verify = function(token, next) {
     pool.getConnection(function(err, connection){    
-		debug = 'SELECT enabled FROM '+prefix+'token WHERE token = '+connection.escape(token)+' AND enabled = 1 LIMIT 1';
-		console.log(debug);
 		connection.query('SELECT enabled FROM '+prefix+'token WHERE token = '+connection.escape(token)+' AND enabled = 1 LIMIT 1', function (error, result) {
             try {
             connection.release();
