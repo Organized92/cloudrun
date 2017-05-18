@@ -24,7 +24,7 @@ DebugOutput.prototype.log = function(message, level) {
         
         fs.open(this.dbg_file, 'a', function(err, fd) {
             if(!err) {
-                fs.write(fd, log_text + "\n");
+                fs.write(fd, log_text + "\n", function() {});
             }
             else {
                 console.log("Error writing to file " + this.dbg_file);
@@ -49,7 +49,7 @@ DebugOutput.prototype.prev = function(message) {
         
         fs.open(this.dbg_file, 'a', function(err, fd) {
             if(!err) {
-                fs.write(fd, log_text + "\n");
+                fs.write(fd, log_text + "\n", function() {});
             }
             else {
                 console.log("Error writing to file " + this.dbg_file);
