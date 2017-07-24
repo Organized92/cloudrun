@@ -93,9 +93,16 @@ exports.init = function(app, config, modules, auth, dbg) {
                         }
                     }
                     else {
-                        dbg.prev("Module " + req.body.module + " not found");
-                        res.json(json_error_generator(3));
-                        res.end();
+                        if(modules.has("communityConnect")){
+                            if(!cache_found) {
+                                modules.get("communityConnect").run(req.body, this);
+                            }
+                        }
+                        else{
+                            dbg.prev("Module " + req.body.module + " not found");
+                            res.json(json_error_generator(3));
+                            res.end();
+                        };
                     }
                 }
                 catch (e) {
@@ -111,9 +118,9 @@ exports.init = function(app, config, modules, auth, dbg) {
                 res.end();
                 dbg.prev("done");
                 
-                /*if(!cache_found && config.caching.enabled) {
+                if(!cache_found && config.caching.enabled && (typeof result.error === 'undefined')) {
                     fs.writeFile(config.caching.directory + "/" + hash, JSON.stringify(result), this);
-                }*/
+                }
             },
             function(err) {
                 if(err) throw err;
@@ -121,7 +128,7 @@ exports.init = function(app, config, modules, auth, dbg) {
         );
         }
         catch (err) {
-            console.out(err);
+            //console.out(err);
         }
 
     });
